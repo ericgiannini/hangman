@@ -8,6 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
+void printWord(NSString *word, NSMutableArray<NSString*>
+               *usedLetters) {
+    // functionality for printing word
+    
+    printf(" \nWord: ");
+    
+    // this will be used to track missing letters
+    BOOL missingLetters = NO;
+    
+    // loop over every letter
+    for (NSInteger i = 0; i < [word length]; ++i) {
+        
+        // convert the unichar into an NSString for arrays
+        
+        unichar letter = [word characterAtIndex:i];
+        
+        NSString *letterString = [NSString stringWithFormat:@"%C", letter];
+        
+    // if we already guessed this letter, print it out
+        
+        if ([ usedLetters containsObject:letterString]) {
+            printf("%C", letter);
+        } else {
+            // letter not guessed; mark with a placeholder
+        }
+        
+    }
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
